@@ -10,7 +10,8 @@ export const compress = async ({ sourceFilePath, targetDirectoryPath, isCompress
     throw new Error(failMessage);
   }
 
-  const newFilePath = getNewFilePath2(sourceFilePath, targetDirectoryPath, '.br', isCompress);
+  // const newFilePath = getNewFilePath2(sourceFilePath, targetDirectoryPath, '.br', isCompress); // path_to_destination = path to directory Uncomment if you want this
+  const newFilePath = targetDirectoryPath; // path_to_destination = path to file.
   const readable = createReadStream(sourceFilePath);
   const writable = createWriteStream(newFilePath, { flags: 'wx' });
   const brotli = isCompress ? createBrotliCompress() : createBrotliDecompress();
