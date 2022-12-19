@@ -49,19 +49,9 @@ export class MyController {
           await rename({ sourceFilePath: getPath(this.path, pathToFileRename), newFileName: fileNameRename });
           break;
         case 'cp':
-          // const { path: pathToFileCopy, rest: pathToNewDirectory } = this.parsePath(rest);
-          // await copy({
-          //   sourceFilePath: getPath(this.path, pathToFileCopy),
-          //   targetDirectoryPath: getPath(this.path, pathToNewDirectory),
-          // });
           await copy(this.getPathToFileAndPathToDestinationFolder(rest));
           break;
         case 'mv':
-          // const { path: pathToFileMove, rest: pathToDirectoryMove } = this.parsePath(rest);
-          // await move({
-          //   sourceFilePath: getPath(this.path, pathToFileMove),
-          //   targetDirectoryPath: getPath(this.path, pathToDirectoryMove),
-          // });
           await move(this.getPathToFileAndPathToDestinationFolder(rest));
           break;
         case 'rm':
